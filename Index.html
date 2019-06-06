@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #428bca;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.headcontainer {
+  background-color: #f2f2f2;
+  padding: 10px;
+ }
+ 
+.container {
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<form action="welcome.php" method="post">
+
+<div class="headcontainer">
+  <img width="120" height="85" src="D:\Tracker\MS-LV-Deliverables\lv-logo.png" alt="lv logo">
+  <img style="float:right;width:250px;height:85px;" src="D:\Tracker\MS-LV-Deliverables\ms logo.png" alt="ms logo">
+</div>
+
+
+<h2 style="font-size:200%; color:#428bca; font-family:sans-serif;">Deliverable Tracker</h2>
+<p style="font-size:150%; float:center-right; color:#226466; font-family:sans-serif;">Enter the details below to add new deliveries.</p>
+<p style="font-size:150%; float:center-right; color:#226466; font-family:sans-serif;">OR</p>
+<p style="font-size:150%; float:center-right; color:#226466; font-family:sans-serif;">Click here to update an existing deliverable.
+	<a style="float:center-right; color:#226466; font-family:sans-serif;" href="file:///C:/Users/v-saisri/Desktop/update.html">Update a Deliverable</a>
+</p>
+
+<div class="container">
+  <form action="/action_page.php">
+    <div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="project"><b>Project</b></label>
+      </div>
+      <div class="col-75">
+        <select id="project" name="project">
+          <option value="" disabled selected>Select your project</option>
+		  <option value="xbox">XBox</option>
+          <option value="msft credit">Microsoft Credit Services</option>
+          <option value="bingstack">Bing Stack</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="DeliverableName"><b>Deliverable Name</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="DeliverableName" name="DeliverableName" placeholder="Enter the Name of the Deliverable">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="status"><b>Deliverable Status</b></label>
+      </div>
+      <div class="col-75">
+        <select id="status" name="status">
+          <option value="" disabled selected>Select the status of the deliverable</option>
+		  <option value="closed">Closed</option>
+          <option value="iteration">Iteration</option>
+          <option value="osprogress">Offshore in Progress</option>
+		  <option value="onhold">On Hold</option>
+          <option value="onsprogress">Onsite in Progress</option>
+          <option value="subclient">Submitted to Client</option>
+        </select>
+      </div>
+	</div>	
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="ToW"><b>Deliverable Type</b></label>
+      </div>
+      <div class="col-75">
+        <select id="ToW" name="ToW">
+          <option value="" disabled selected>Select the type of work</option>
+		  <option value="adhoc">Ad-Hoc</option>
+          <option value="regular">Regular</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="CoW"><b>Classification of Work</b></label>
+      </div>
+      <div class="col-75">
+        <select id="CoW" name="CoW">
+          <option value="" disabled selected>Classify the deliverable</option>
+		  <option value="busan">Business Analysis</option>
+          <option value="Dboarddev">Dashoard Development</option>
+		  <option value="dscience">Data Science</option>
+		  <option value="reporting">Reporting</option>
+		  <option value="others">Others</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="MoD"><b>Mode of Delivery</b></label>
+      </div>
+      <div class="col-75">
+        <select id="MoD" name="MoD">
+          <option value="" disabled selected>Deliverable sent as</option>
+		  <option value="ppt">PPT</option>
+          <option value="pptxl">PPT + Excel</option>
+		  <option value="dboard">Dashboard</option>
+		  <option value="datastream">Data Stream</option>
+		  <option value="email">Email</option>
+		  <option value="xl">Excel</option>
+		  <option value="newsl">Newsletter</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="ofcontact"><b>Offshore Contact</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="ofcontact" name="ofcontact" placeholder="Enter the Name of offshore contact resource">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="oncontact"><b>Onsite Contact</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="oncontact" name="oncontact" placeholder="Enter the Name of onsite contact resource">
+      </div>
+    </div>
+		<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="bques"><b>Business Question</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="bques" name="bques" placeholder="Business context of the deliverable" style = "height:40px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="Appnotes"><b>Approach Notes Approved?</b></label>
+      </div>
+      <div class="col-75">
+        <select id="Appnotes" name="Appnotes">
+          <option value="" disabled selected>Select</option>
+		  <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="5stage"><b>5 Stage Framework Followed?</b></label>
+      </div>
+      <div class="col-75">
+        <select id="5stage" name="5stage">
+          <option value="" disabled selected>Select</option>
+		  <option value="yes">Yes</option>
+          <option value="no">No</option>
+		  <option value="n/a">N/A</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="offshorestartdate"><b>Offshore Start Date</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="offshorestartdate" name="offshorestartdate" placeholder="Select Off Shore Start Date">
+      </div>
+    </div>
+	    <div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="posenddate"><b>Proposed Offshore End Date</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="posenddate" name="posenddate" placeholder="Select Proposed OffShore End Date">
+      </div>
+    </div>    
+    <div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="osenddate"><b>Offshore End Date</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="osenddate" name="osenddate" placeholder="Select the Offshore End Date">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="varreason"><b>Reasons for Scheduled Variance</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="varreason" name="varreason" placeholder="Ignore this section if there is no variance for the delivery" style = "height:40px"></textarea>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="osqcr"><b>Offshore Resource for QC</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="osqcr" name="osqcr" placeholder="QC Done by">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="onsrr"><b>Onsite Review Resource</b></label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="onsrr" name="onsrr" placeholder="Onsite Review was Done by">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="onsrevdt"><b>Onsite Review Date</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="onsrevdt" name="onsrevdt" placeholder="Select Date of Review by Onsite Resource">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="onsrc"><b>Onsite Review Comments</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="onsrc" name="onsrc" placeholder="Type onsite comments here" style = "height:40px"></textarea>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="cdeldt"><b>Date of Delivery to Client</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="cdeldt" name="cdeldt" placeholder="Select Date on which delivery was made to the client">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="cappdate"><b>Client Approval Date</b></label>
+      </div>
+      <div class="col-75">
+        <input style="border-radius: 2px; height: 150%; margin-top: 10px;" type="date" id="cappdate" name="cappdate" placeholder="Select Date of approval by the client">
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="insights"><b>Insights/Recommendations</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="insights" name="insights" placeholder="Enter the insights and recommendations here" style="height:70px"></textarea>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="escalation"><b>Escalation</b></label>
+      </div>
+      <div class="col-75">
+        <select id="escalation" name="escalation">
+          <option value="" disabled selected>Select</option>
+		  <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="cfeedback"><b>Client Feedback</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="cfeedback" name="cfeedback" placeholder="Enter the Client's feedback here" style="height:40px"></textarea>
+      </div>
+    </div>
+	<div class="row">
+      <div class="col-25">
+        <label style="font-size:125%; color:#226466; font-style:bold; font-family:sans-serif;" for="doc"><b>Documentation</b></label>
+      </div>
+      <div class="col-75">
+        <textarea id="doc" name="doc" placeholder="Enter document location here, if available" style="height:40px"></textarea>
+      </div>
+    </div>
+    <div class="row">
+		<label style="font-size:125%;"><b></b></label>
+    </div>
+	<div class="row">
+      <input type="submit" style="font-style:bold;" value="Submit">
+    </div>
+  </form>
+</div>
+
+</form>
+
+
+</body>
+</html>
